@@ -2,15 +2,11 @@
 require_once("../src/Page.php");
 
 try {
-    if(isset($_GET['req']))
-        $request = $_GET['req'];
-    else
-        $request = "index";
-
     $page = Page::getInstance();
 
     $page->addHead("<meta charset=\"utf-8\">");
     $page->addHead("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+    $page->addHead("<base href=\"http://corollarium.com/\">");
     $page->addHead("<link rel=\"home\" href=\"http://corollarium.com\">");
     $page->addHead("<!--[if IE 8]>");
     $page->addJavaScript("http://corollarium.com/floh/js/css3-mediaqueries.js");
@@ -37,9 +33,6 @@ try {
     $page->addJavaScript("http://corollarium.com/templates/royalblue/template.1726.js");
     $page->addCSS("http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.min.css");
 
-    $page->setTitle("Example.com");
-    $page->setHeader("<div class='header'>Header</div>");
-
     $headerFile = "./src/header.php";
     if(file_exists($headerFile))
         $header = file_get_contents($headerFile);
@@ -48,16 +41,11 @@ try {
 
     $page->setHeader($header);
 
-    switch($request){
-        case "index":
-            $content = "<div class='content'>Index: content example<br>".
-                       "<a href=\"about.php\">Teste: Sobre nós</a><br>".
-                       "<a href=\"contact.php\">Teste: Contate-nos</a></div>";
-            break;
-        case "about":
-            $content = "<div class='content'>About: example</div>";
-            break;
-    }
+    $contentFile = "./src/pt_BR_about.php";
+    if(file_exists($contentFile))
+        $content = file_get_contents($contentFile);
+    if(!isset($content))
+        $content = "<div class='content'>Content</div>";
 
     $page->setContent($content);
 
@@ -68,7 +56,6 @@ try {
         $footer = "<div class='footer'></div>";
 
     $page->setFooter($footer);
-    //$page->setFooter("<div class='footer'>Example.com - Example</div>");
 
     print $page->render();
 }
