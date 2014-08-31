@@ -40,7 +40,6 @@ try {
         $header = file_get_contents($headerFile);
     if(!isset($header))
         $header = "<div class='header'></div>";
-
     $page->setHeader($header);
 
     $contentFile = "./src/pt_BR_contact.php";
@@ -48,7 +47,6 @@ try {
         $content = file_get_contents($contentFile);
     if(!isset($content))
         $content = "<div class='content'>Content</div>";
-
     $page->setContent($content);
 
     $footerFile = "./src/footer.php";
@@ -56,7 +54,6 @@ try {
         $footer = file_get_contents($footerFile);
     if(!isset($content))
         $footer = "<div class='footer'></div>";
-
     $page->setFooter($footer);
 
     print $page->render();

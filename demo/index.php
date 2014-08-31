@@ -45,7 +45,6 @@ try {
         $header = file_get_contents($headerFile);
     if(!isset($header))
         $header = "<div class='header'></div>";
-
     $page->setHeader($header);
 
     switch($request){
@@ -58,7 +57,6 @@ try {
             $content = "<div class='content'>About: example</div>";
             break;
     }
-
     $page->setContent($content);
 
     $footerFile = "./src/footer.php";
@@ -66,9 +64,7 @@ try {
         $footer = file_get_contents($footerFile);
     if(!isset($content))
         $footer = "<div class='footer'></div>";
-
     $page->setFooter($footer);
-    //$page->setFooter("<div class='footer'>Example.com - Example</div>");
 
     print $page->render();
 }
