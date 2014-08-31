@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fabio
- * Date: 8/30/14
- * Time: 5:20 PM
- */
-
 class Page {
     private static $instance = NULL;
     private $head = array();
@@ -78,9 +71,10 @@ class Page {
     /**
      * @param mixed $title
      */
-    public function setTitle($title)
+    public function setTitle($title = "")
     {
-        $this->title = $title;
+        if($title != "")
+            $this->title = $title;
     }
 
     /**
@@ -112,21 +106,33 @@ class Page {
         }
     }
 
+    public function cleanHead(){
+        $this->head = array();
+    }
+
+    /**
+     * @return array
+     */
+    public function getHead(){
+        return $this->head;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeadContent(){
+        return $this->head();
+    }
 
     public function render()
     {
         $headContent = $this->head();
-        $this->page = "<!DOCTYPE html>". "\r\n";
-//        $this->page .= "<html>" . "\r\n";
-        $this->page .= "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"
-                        xmlns:dc=\"http://purl.org/dc/elements/1.1/\" version=\"XHTML+RDFa 1.0\"
-	                    lang=\"pt-BR\" xml:lang=\"pt-BR\"
-	                    locale=\"pt_BR\"
-	                    class=\"no-js no-loggedin\">" . "\r\n";
-        $this->page .= $headContent . "\t";
+        $this->page = "<!DOCTYPE html>" . "\r\n" ;
+        $this->page .= $headContent;
+        $this->page .= "\r\n" . "<html>" . "\r\n";
         $this->page .= "<body>" . "\r\n" . $this->header . $this->content;
-        $this->page .= $this->footer . "\r\n" . "\t";
-        $this->page .= "</body>" . "\r\n" . "</html>";
+        $this->page .= $this->footer;
+        $this->page .= "\r\n" . "</body>" . "\r\n" . "</html>";
 
         return $this->page;
     }
