@@ -49,13 +49,29 @@ try {
 
     switch($request){
         case "index":
-            $content = "<div class='content'>Index: content example<br>".
-                       "<a href=\"about.php\">Teste: Sobre nós</a><br>".
-                       "<a href=\"contact.php\">Teste: Contate-nos</a></div>";
+            $content = "<div class='content'>Exemplo de conteúdo<br>".
+                       "<a href=\"about\">Teste: Sobre nós</a><br>".
+                       "<a href=\"contact\">Teste: Contate-nos</a></div>".
+                       "<a href=\"simple_page.php\">simple_page.php</a></div>";
             break;
         case "about":
-            $content = "<div class='content'>About: example</div>";
+            $contentFile = "./src/pt_BR_about.php";
+            if(file_exists($contentFile))
+                $content = file_get_contents($contentFile);
+            if(!isset($content))
+                $content = "<div class='content'>Content</div>";
             break;
+
+        case "contact":
+            $contentFile = "./src/pt_BR_contact.php";
+            if(file_exists($contentFile))
+                $content = file_get_contents($contentFile);
+            if(!isset($content))
+                $content = "<div class='content'>Content</div>";
+            break;
+
+        default:
+            $content = "Página não encontrada.";
     }
     $page->setContent($content);
 
@@ -67,9 +83,7 @@ try {
     $page->setFooter($footer);
 
     print $page->render();
-}
-catch (Exception $e)
-{
+} catch (Exception $e){
     echo $e->getMessage();
 }
 

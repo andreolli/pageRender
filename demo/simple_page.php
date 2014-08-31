@@ -11,9 +11,7 @@ try {
     $page->setFooter("footer");
 
     print $page->render();
-}
-catch (Exception $e)
-{
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 

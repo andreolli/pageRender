@@ -3,10 +3,10 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="http://localhost/pg/demo/about.php">Sobre a Corollarium</a>
+                    <a href="about">Sobre a Corollarium</a>
                 </li>
                 <li><a accesskey="9"
-                       href="http://localhost/pg/demo/contact.php">Contate-nos</a>
+                       href="contact">Contate-nos</a>
                 </li>
                 <li><a href="http://facebook.com/corollarium"><img src="http://corollarium.com/image/Facebook-icon.png" alt="Facebook"></a>
                 <li><a href="http://www.youtube.com/user/corollariumtech"><img src="http://corollarium.com/image/Youtube-icon.png" alt="Youtube"></a></li>

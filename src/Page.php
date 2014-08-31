@@ -1,4 +1,12 @@
 <?php
+/**
+ * Class to generate html pages
+ *
+ * Class to generate an object Page with title, different head elements, header, footer and content.
+ *
+ * @author     Fabio Andreolli
+ */
+
 class Page {
     private static $instance = NULL;
     private $head = array();
@@ -8,13 +16,11 @@ class Page {
     private $page;
     private $title = "Corollarium";
 
-    private function __construct()
-    {
+    private function __construct() {
         //singleton
     }
 
-    public static function getInstance()
-    {
+    public static function getInstance() {
         if (!isset(self::$instance))
             self::$instance = new self;
 
@@ -24,55 +30,48 @@ class Page {
     /**
      * @param mixed $header
      */
-    public function setHeader($header)
-    {
+    public function setHeader($header) {
         $this->header = $header;
     }
 
     /**
      * @return mixed
      */
-    public function getHeader()
-    {
+    public function getHeader() {
         return $this->header;
     }
     /**
      * @param mixed $footer
      */
-    public function setFooter($footer)
-    {
+    public function setFooter($footer) {
         $this->footer = $footer;
     }
 
     /**
      * @return mixed
      */
-    public function getFooter()
-    {
+    public function getFooter() {
         return $this->footer;
     }
 
     /**
      * @param mixed $content
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
     }
 
     /**
      * @return mixed
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
     /**
      * @param mixed $title
      */
-    public function setTitle($title = "")
-    {
+    public function setTitle($title = "") {
         if($title != "")
             $this->title = $title;
     }
@@ -80,16 +79,14 @@ class Page {
     /**
      * @return mixed
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
     /**
      * @param mixed $element
      */
-    public function addHead($element)
-    {
+    public function addHead($element) {
         if($element != ""){
             $this->head[] = $element;
         }
@@ -98,8 +95,7 @@ class Page {
     /**
      * @param mixed $path
      */
-    public function addCSS($path)
-    {
+    public function addCSS($path) {
         if($path != ""){
             $this->head[] = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"$path\">";
         }
@@ -108,28 +104,27 @@ class Page {
     /**
      * @param mixed $path
      */
-    public function addJavaScript($path)
-    {
+    public function addJavaScript($path) {
         if($path != ""){
             $this->head[] = "<script type=\"text/javascript\" src=\"$path\"></script>";
         }
     }
 
-    public function cleanHead(){
+    public function cleanHead() {
         $this->head = array();
     }
 
     /**
      * @return array
      */
-    public function getHead(){
+    public function getHead() {
         return $this->head;
     }
 
     /**
      * @return mixed
      */
-    public function getHeadContent(){
+    public function getHeadContent() {
         return $this->head();
     }
 
@@ -149,8 +144,7 @@ class Page {
     /**
      * @return mixed
      */
-    private function head()
-    {
+    private function head() {
         $headContent = "<head>";
         $headContent .= "<title>" . $this->title . "</title>";
 

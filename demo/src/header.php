@@ -10,13 +10,13 @@
                 <a href="/" class="brand">&nbsp;</a>
                 <div class="nav-collapse collapse top-nav">
                     <div id="langselect">
-                        <a href="/page/about?locale=pt" title="Português">Português</a>/<a href="/page/about?locale=en" title="English">English</a>
+                        <a href="/about?locale=pt" title="Português">Português</a>/<a href="/page/about?locale=en" title="English">English</a>
                     </div>
                     <ul class="nav nav-pills">
 
 
                         <li>
-                            <a title="Sobre nós" href="/page/about">
+                            <a title="Sobre nós" href="/about">
                                 Sobre nós
                             </a>
                         </li>

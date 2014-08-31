@@ -5,8 +5,7 @@ class PageTest extends PHPUnit_Framework_TestCase {
 
     var $page;
 
-    public function testTitle()
-    {
+    public function testTitle() {
         $this->page->setTitle();
         $result = $this->page->getTitle();
         $expected = 'Corollarium';
@@ -18,55 +17,49 @@ class PageTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result == $expected);
     }
 
-    public function testHeader()
-    {
+    public function testHeader() {
         $this->page->setHeader('Test header');
         $result = $this->page->getHeader();
         $expected = 'Test header';
         $this->assertTrue($result == $expected);
     }
 
-    public function testFooter()
-    {
+    public function testFooter() {
         $this->page->setFooter('Test footer');
         $result = $this->page->getFooter();
         $expected = 'Test footer';
         $this->assertTrue($result == $expected);
     }
 
-    public function testAddHead()
-    {
+    public function testAddHead() {
         $this->page->addHead("<base href=\"http://corollarium.com/\">");
         $result = $this->page->getHead()[sizeof($this->page->getHead())-1];
         $expected = "<base href=\"http://corollarium.com/\">";
         $this->assertTrue($result == $expected);
     }
 
-    public function testAddCSS()
-    {
+    public function testAddCSS() {
         $this->page->addCSS("http://www.example.com/css/filename.css");
         $result = $this->page->getHead()[sizeof($this->page->getHead())-1];
         $expected = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"http://www.example.com/css/filename.css\">";
         $this->assertTrue($result == $expected);
     }
 
-    public function testAddJavaScript()
-    {
+    public function testAddJavaScript() {
         $this->page->addJavaScript("http://www.example.com/js/filename.js");
         $result = $this->page->getHead()[sizeof($this->page->getHead())-1];
         $expected = "<script type=\"text/javascript\" src=\"http://www.example.com/js/filename.js\"></script>";
         $this->assertTrue($result == $expected);
     }
 
-    public function testContent()
-    {
+    public function testContent() {
         $this->page->setContent('Test content');
         $result = $this->page->getContent();
         $expected = 'Test content';
         $this->assertTrue($result == $expected);
     }
 
-    public function testHead(){
+    public function testHead() {
         $this->page->cleanHead();
         $this->page->setTitle("title");
         $this->page->addHead("<meta charset=\"utf-8\">");
@@ -76,7 +69,7 @@ class PageTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result == $expected);
     }
 
-    public function testRender(){
+    public function testRender() {
         $this->page->cleanHead();
         $this->page->setTitle("title");
         $this->page->addHead("<meta charset=\"utf-8\">");
@@ -94,13 +87,11 @@ class PageTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result == $expected);
     }
 
-    protected function setUp()
-    {
+    protected function setUp() {
         $this->page = Page::getInstance();
     }
 
-    protected function tearDown()
-    {
+    protected function tearDown() {
         unset($this->page);
     }
 }
