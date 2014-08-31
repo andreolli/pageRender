@@ -37,7 +37,6 @@ try {
     $page->addJavaScript("http://corollarium.com/templates/royalblue/template.1726.js");
     $page->addCSS("http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.min.css");
 
-    $page->setTitle("Example.com");
     $page->setHeader("<div class='header'>Header</div>");
 
     $headerFile = "./src/header.php";
@@ -49,12 +48,14 @@ try {
 
     switch($request){
         case "index":
+            $page->setTitle();
             $content = "<div class='content'>Exemplo de conteúdo<br>".
                        "<a href=\"about\">Teste: Sobre nós</a><br>".
                        "<a href=\"contact\">Teste: Contate-nos</a></div>".
                        "<a href=\"simple_page.php\">simple_page.php</a></div>";
             break;
         case "about":
+            $page->setTitle("Corollarium - Sobre nós");
             $contentFile = "./src/pt_BR_about.php";
             if(file_exists($contentFile))
                 $content = file_get_contents($contentFile);
@@ -63,6 +64,7 @@ try {
             break;
 
         case "contact":
+            $page->setTitle("Corollarium - Contate-nos");
             $contentFile = "./src/pt_BR_contact.php";
             if(file_exists($contentFile))
                 $content = file_get_contents($contentFile);
