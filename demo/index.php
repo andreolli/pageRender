@@ -59,7 +59,7 @@ try {
             if(file_exists($contentFile))
                 $content = file_get_contents($contentFile);
             if(!isset($content))
-                $content = "<div class='content'>Content</div>";
+                $content = "<div class='content'>Sobre nós</div>";
             break;
 
         case "contact":
@@ -67,7 +67,7 @@ try {
             if(file_exists($contentFile))
                 $content = file_get_contents($contentFile);
             if(!isset($content))
-                $content = "<div class='content'>Content</div>";
+                $content = "<div class='content'>Contate-nos</div>";
             break;
 
         default:
