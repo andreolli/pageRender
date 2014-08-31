@@ -10,7 +10,7 @@ class Page {
 
     private function __construct()
     {
-        // singleton
+        //singleton
     }
 
     public static function getInstance()
@@ -85,6 +85,9 @@ class Page {
         return $this->title;
     }
 
+    /**
+     * @param mixed $element
+     */
     public function addHead($element)
     {
         if($element != ""){
@@ -92,6 +95,9 @@ class Page {
         }
     }
 
+    /**
+     * @param mixed $path
+     */
     public function addCSS($path)
     {
         if($path != ""){
@@ -99,6 +105,9 @@ class Page {
         }
     }
 
+    /**
+     * @param mixed $path
+     */
     public function addJavaScript($path)
     {
         if($path != ""){
@@ -137,6 +146,9 @@ class Page {
         return $this->page;
     }
 
+    /**
+     * @return mixed
+     */
     private function head()
     {
         $headContent = "<head>";
