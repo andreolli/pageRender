@@ -8,8 +8,8 @@
             document.write("<a href='" + "mail" + "to:" + linktext + "'>" + linktext + "</a>");
         </script>
     </p>
-    <p>Call us at +55 11 41652936</p>
-    <p>We are based in São Paulo, Brazil</p>
+    <p>Ligue para nós no +55 11 41652936</p>
+    <p>Estamos em São Paulo, Brasil</p>
 </div>
 <div style="clear:both"></div></div>
 <script>
