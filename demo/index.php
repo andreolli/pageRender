@@ -2,8 +2,8 @@
 require_once("../src/Page.php");
 
 try {
-    if(isset($_GET['req']))
-        $request = $_GET['req'];
+    if(isset($_GET['request']))
+        $request = $_GET['request'];
     else
         $request = "index";
 
