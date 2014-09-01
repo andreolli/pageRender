@@ -49,18 +49,18 @@ try {
     switch($request){
         case "index":
             $page->setTitle();
-            $content = "<div class='content'>Exemplo de conteúdo<br>".
-                       "<a href=\"about\">Teste: Sobre nós</a><br>".
+            $content = "<div class='content'>Exemplo de conte&uacute;do<br>".
+                       "<a href=\"about\">Teste: Sobre n&oacute;s</a><br>".
                        "<a href=\"contact\">Teste: Contate-nos</a></div>".
                        "<a href=\"simple_page.php\">simple_page.php</a></div>";
             break;
         case "about":
-            $page->setTitle("Corollarium - Sobre nós");
+            $page->setTitle("Corollarium - Sobre n&oacute;s");
             $contentFile = "./src/pt_BR_about.php";
             if(file_exists($contentFile))
                 $content = file_get_contents($contentFile);
             if(!isset($content))
-                $content = "<div class='content'>Sobre nós</div>";
+                $content = "<div class='content'>Sobre n&oacute;s</div>";
             break;
 
         case "contact":
@@ -73,7 +73,7 @@ try {
             break;
 
         default:
-            $content = "Página não encontrada.";
+            $content = "P&aacute;gina n&atilde;o encontrada.";
     }
     $page->setContent($content);
 
