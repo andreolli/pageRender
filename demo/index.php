@@ -15,17 +15,17 @@ try {
     $page->addHead("<!--[if IE 8]>");
     $page->addJavaScript("http://corollarium.com/floh/js/css3-mediaqueries.js");
     $page->addHead("<![endif]-->");
-    $page->addCSS("http://corollarium.com/floh/css/site.6208.css");
-    $page->addCSS("http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.min.css");
-    $page->addCSS("http://corollarium.com/floh/bootstrap-2.3.2/css/bootstrapall.6208.css");
-    $page->addCSS("http://corollarium.com/floh/js/external/prettify/prettify.css");
-    $page->addCSS("http://corollarium.com/css/screen.1726.css");
-    $page->addJavaScript("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
-    $page->addJavaScript("http://code.jquery.com/ui/1.11.0/jquery-ui.min.js");
-    $page->addJavaScript("http://corollarium.com/floh/js/strings.pt_BR.6208.js");
-    $page->addJavaScript("http://corollarium.com/floh/js/plugins.6208.js");
-    $page->addJavaScript("http://corollarium.com/floh/js/locale.pt_BR.6208.js");
-    $page->addJavaScript("http://corollarium.com/floh/js/floh-min.6208.js");
+    $page->addCSSArray(Array("http://corollarium.com/floh/css/site.6208.css",
+                                "http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.min.css",
+                                "http://corollarium.com/floh/bootstrap-2.3.2/css/bootstrapall.6208.css",
+                                "http://corollarium.com/floh/js/external/prettify/prettify.css",
+                                "http://corollarium.com/css/screen.1726.css"));
+    $page->addJavaScriptArray(Array("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+                                "http://code.jquery.com/ui/1.11.0/jquery-ui.min.js",
+                                "http://corollarium.com/floh/js/strings.pt_BR.6208.js",
+                                "http://corollarium.com/floh/js/plugins.6208.js",
+                                "http://corollarium.com/floh/js/locale.pt_BR.6208.js",
+                                "http://corollarium.com/floh/js/floh-min.6208.js"));
     $page->addHead("<!--[if lt IE 9]>");
     $page->addJavaScript("http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js");
     $page->addJavaScript("http://corollarium.com/floh/perfectum_dashboard_1_0_4_html/js/excanvas.js");

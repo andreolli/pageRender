@@ -102,11 +102,33 @@ class Page {
     }
 
     /**
+     * @param Array $pathList
+     */
+    public function addCSSArray(Array $pathList) {
+        foreach($pathList as $path){
+            if($path != ""){
+                $this->addCSS($path);
+            }
+        }
+    }
+
+    /**
      * @param mixed $path
      */
     public function addJavaScript($path) {
         if($path != ""){
             $this->head[] = "<script type=\"text/javascript\" src=\"$path\"></script>";
+        }
+    }
+
+    /**
+     * @param Array $pathList
+     */
+    public function addJavaScriptArray(Array $pathList) {
+        foreach($pathList as $path){
+            if($path != ""){
+                $this->addJavaScript($path);
+            }
         }
     }
 

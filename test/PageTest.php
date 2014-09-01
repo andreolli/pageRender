@@ -43,12 +43,32 @@ class PageTest extends PHPUnit_Framework_TestCase {
         $result = $this->page->getHead()[sizeof($this->page->getHead())-1];
         $expected = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"http://www.example.com/css/filename.css\">";
         $this->assertTrue($result == $expected);
+
+        $this->page->cleanHead();
+        $this->page->addCSSArray(Array("http://www.example.com/css/filename1.css",
+                                    "http://www.example.com/css/filename2.css"));
+        $firstCSS = $this->page->getHead()[sizeof($this->page->getHead())-2];
+        $secondCSS = $this->page->getHead()[sizeof($this->page->getHead())-1];
+        $result = $firstCSS . $secondCSS;
+        $expected = "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"http://www.example.com/css/filename1.css\">" .
+            "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"http://www.example.com/css/filename2.css\">";
+        $this->assertTrue($result == $expected);
     }
 
     public function testAddJavaScript() {
         $this->page->addJavaScript("http://www.example.com/js/filename.js");
         $result = $this->page->getHead()[sizeof($this->page->getHead())-1];
         $expected = "<script type=\"text/javascript\" src=\"http://www.example.com/js/filename.js\"></script>";
+        $this->assertTrue($result == $expected);
+
+        $this->page->cleanHead();
+        $this->page->addJavaScriptArray(Array("http://www.example.com/js/filename1.js",
+                                        "http://www.example.com/js/filename2.js"));
+        $firstJavaScript = $this->page->getHead()[sizeof($this->page->getHead())-2];
+        $secondJavaScript = $this->page->getHead()[sizeof($this->page->getHead())-1];
+        $result = $firstJavaScript . $secondJavaScript;
+        $expected = "<script type=\"text/javascript\" src=\"http://www.example.com/js/filename1.js\"></script>" .
+                    "<script type=\"text/javascript\" src=\"http://www.example.com/js/filename2.js\"></script>";
         $this->assertTrue($result == $expected);
     }
 
