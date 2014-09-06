@@ -152,11 +152,11 @@ class Page {
 
     public function render()
     {
-        $headContent = $this->head();
         $this->page = "<!DOCTYPE html>" . "\r\n" ;
+        $this->page .= "<html>" . "\r\n";
+        $headContent = $this->head();
         $this->page .= $headContent;
-        $this->page .= "\r\n" . "<html>" . "\r\n";
-        $this->page .= "<body>" . "\r\n" . $this->header . $this->content;
+        $this->page .= "\r\n" . "<body>" . "\r\n" . $this->header . $this->content;
         $this->page .= $this->footer;
         $this->page .= "\r\n" . "</body>" . "\r\n" . "</html>";
 

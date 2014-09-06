@@ -98,7 +98,7 @@ class PageTest extends PHPUnit_Framework_TestCase {
         $this->page->setFooter("footer");
 
         $result = $this->page->render();
-        $expected = "<!DOCTYPE html>\r\n<head><title>title</title><meta charset=\"utf-8\"></head>\r\n<html>" .
+        $expected = "<!DOCTYPE html>\r\n<html>\r\n<head><title>title</title><meta charset=\"utf-8\"></head>" .
                     "\r\n<body>\r\nheader<br>content<br>footer\r\n</body>\r\n</html>";
 
         $expected = $expected;
